@@ -18,6 +18,10 @@ switch ($current_page) {
 	case 'project':
 	require_once('project.php');
 	break;
+	
+	case 'add-team':
+	require_once('add-team.php');
+	break;
 		
 	default:
 	require_once('404.php');

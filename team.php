@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="col-sm-4">
-		<button type="button" class="btn btn-custom btn-rounded w-md waves-effect waves-light mb-4"><i class="fa fa-plus-circle"></i> Add Team</button>
+		 <a href="index.php?page=add-team" class="btn btn-custom btn-rounded w-md waves-effect waves-light mb-4"><i class="fa fa-plus-circle"></i> Add Team </a>
 	</div>
 </div>
 <div class="row">
