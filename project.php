@@ -31,283 +31,68 @@
 <!-- end row -->
 
 <div class="row">
+	<?php
+		$callProject = "{call SP_GET_PROJECT}"; 
+		$execProject = sqlsrv_query( $conn, $callProject) or die( print_r( sqlsrv_errors(), true));
+		$ribbon="";
+		while($dataProject = sqlsrv_fetch_array($execProject)){
+			$status=$dataProject['STATUS'];
+			if($status == "Development"){
+				$ribbon = "ribbon-info";
+			}else if ($status == "Go Live"){
+				$ribbon = "ribbon-success";
+			}else if ($status == "Pending"){
+				$ribbon = "ribbon-danger";
+			}else if ($status == "Development Phase 2"){
+				$ribbon = "ribbon-info";
+			}else if ($status == "UAT"){
+				$ribbon = "ribbon-warning";
+			}
+	?>
 	<div class="col-xl-4">
 		<div class="card-box project-box ribbon-box">
-			<div class="ribbon ribbon-info">Development</div>
+			<div class="ribbon <?php echo $ribbon;?>"><?php echo $dataProject['STATUS'];?></div>
 			<br><br><br>
-			<p class="text-muted text-uppercase mb-0 font-13">Mobile & Website</p>
-			<h4 class="mt-0 mb-3"><a href="" class="text-dark">Mobile Collection</a></h4>
-			<p class="text-muted font-13">Lorem Ipsum is simply dummy text of the printing and
-				typesetting industry. When an unknown printer took a galley of type and
-				scrambled it...<a href="#" class="font-600 text-muted">view more</a>
+			<p class="text-muted text-uppercase mb-0 font-13"><?php echo $dataProject['CATEGORY_TITLE'];?></p>
+			<h4 class="mt-0 mb-3"><a href="" class="text-dark"><?php echo $dataProject['TITLE'];?></a></h4>
+			<p class="text-muted font-13"><?php echo $dataProject['DESCRIPTION'];?>...<a href="#" class="font-600 text-muted">view more</a>
 			</p>
 
 			<ul class="list-inline">
 				<li class="list-inline-item">
-					<h4 class="mb-0">01/03/2019</h4>
+					<h4 class="mb-0"><?php echo $dataProject['START_DATE']->format("Y-m-d");?></h4>
 					<p class="text-muted" style="text-align:center;">Start Date</p>
 				</li>
 				<li class="list-inline-item pull-right">
-					<h4 class="mb-0">31/05/2019</h4>
+					<h4 class="mb-0"><?php echo $dataProject['END_DATE']->format("Y-m-d");?></h4>
 					<p class="text-muted" style="text-align:center;">End Date</p>
 				</li>
 			</ul>
 
 			<div class="project-members mb-4">
 				<label class="mr-3">Team :</label>
-				<a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Widiyanto Ramadhan">
-					<img src="assets/images/team/widi.jpg" class="rounded-circle thumb-sm" alt="friend" />
+				<?php
+					$callTeam = "{call SP_GET_PROJECT_TEAM_MAPPING(?)}"; 
+					$paramsTeam= array(array($dataProject['M_PROJECT_ID'], SQLSRV_PARAM_IN));  
+					$execTeam = sqlsrv_query( $conn, $callTeam,$paramsTeam) or die( print_r( sqlsrv_errors(), true));
+					while($dataTeam = sqlsrv_fetch_array($execTeam)){
+				?>
+				<a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="<?php echo $dataTeam["FULLNAME"];?>">
+					<img src="assets/images/team/<?php echo $dataTeam["IMG"];?>" class="rounded-circle thumb-sm" alt="friend" />
 				</a>
-
-				<a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Rizki Hilmi">
-					<img src="assets/images/team/hilmi.jpg" class="rounded-circle thumb-sm" alt="friend" />
-				</a>
-
-				<a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Agie Annan">
-					<img src="assets/images/team/agie.jpeg" class="rounded-circle thumb-sm" alt="friend" />
-				</a>
-
-				<a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Khoirul Humam Awaludin">
-					<img src="assets/images/team/humam.jpg" class="rounded-circle thumb-sm" alt="friend" />
-				</a>
+				<?php } ?>
 			</div>
 
-			<label class="">Task completed: <span class="text-custom">85/100</span></label>
+			<label class="">Task completed: <span class="text-custom"><?php echo $dataProject['TASK_COMPLETED'];?>/100</span></label>
 			<div class="progress mb-1" style="height: 7px;">
 				<div class="progress-bar"
-					 role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"
-					 style="width: 85%;">
+					 role="progressbar" aria-valuenow="<?php echo $dataProject['TASK_COMPLETED'];?>" aria-valuemin="0" aria-valuemax="100"
+					 style="width: <?php echo $dataProject['TASK_COMPLETED'];?>%;">
 				</div>
 			</div>
 
 		</div>
 	</div>
-	
-	<div class="col-xl-4">
-		<div class="card-box project-box ribbon-box">
-			<div class="ribbon ribbon-success">Go Live</div>
-			<br><br><br>
-			<p class="text-muted text-uppercase mb-0 font-13">Website</p>
-			<h4 class="mt-0 mb-3"><a href="" class="text-dark">Website SFI</a></h4>
-			<p class="text-muted font-13">Lorem Ipsum is simply dummy text of the printing and
-				typesetting industry. When an unknown printer took a galley of type and
-				scrambled it...<a href="#" class="font-600 text-muted">view more</a>
-			</p>
-
-			<ul class="list-inline">
-				<li class="list-inline-item">
-					<h4 class="mb-0">01/10/2018</h4>
-					<p class="text-muted" style="text-align:center;">Start Date</p>
-				</li>
-				<li class="list-inline-item pull-right">
-					<h4 class="mb-0">31/01/2019</h4>
-					<p class="text-muted" style="text-align:center;">End Date</p>
-				</li>
-			</ul>
-
-			<div class="project-members mb-4">
-				<label class="mr-3">Team :</label>
-				<a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Widiyanto Ramadhan">
-					<img src="assets/images/team/widi.jpg" class="rounded-circle thumb-sm" alt="friend" />
-				</a>
-
-				<a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Rizki Hilmi">
-					<img src="assets/images/team/hilmi.jpg" class="rounded-circle thumb-sm" alt="friend" />
-				</a>
-
-				<a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Agie Annan">
-					<img src="assets/images/team/agie.jpeg" class="rounded-circle thumb-sm" alt="friend" />
-				</a>
-
-				<a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Khoirul Humam Awaludin">
-					<img src="assets/images/team/humam.jpg" class="rounded-circle thumb-sm" alt="friend" />
-				</a>
-			</div>
-
-			<label class="">Task completed: <span class="text-custom">100/100</span></label>
-			<div class="progress mb-1" style="height: 7px;">
-				<div class="progress-bar"
-					 role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"
-					 style="width: 100%;">
-				</div>
-			</div>
-
-		</div>
-	</div>
-	
-	<div class="col-xl-4">
-		<div class="card-box project-box ribbon-box">
-			<div class="ribbon ribbon-danger">Pending</div>
-			<br><br><br>
-			<p class="text-muted text-uppercase mb-0 font-13">Mobile</p>
-			<h4 class="mt-0 mb-3"><a href="" class="text-dark">SUFI SMART</a></h4>
-			<p class="text-muted font-13">Lorem Ipsum is simply dummy text of the printing and
-				typesetting industry. When an unknown printer took a galley of type and
-				scrambled it...<a href="#" class="font-600 text-muted">view more</a>
-			</p>
-
-			<ul class="list-inline">
-				<li class="list-inline-item">
-					<h4 class="mb-0">01/10/2018</h4>
-					<p class="text-muted" style="text-align:center;">Start Date</p>
-				</li>
-				<li class="list-inline-item pull-right">
-					<h4 class="mb-0">31/01/2019</h4>
-					<p class="text-muted" style="text-align:center;">End Date</p>
-				</li>
-			</ul>
-
-			<div class="project-members mb-4">
-				<label class="mr-3">Team :</label>
-				<a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Nur Hidayat">
-					<img src="assets/images/team/dayat.jpg" class="rounded-circle thumb-sm" alt="friend" />
-				</a>
-				<a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Widiyanto Ramadhan">
-					<img src="assets/images/team/widi.jpg" class="rounded-circle thumb-sm" alt="friend" />
-				</a>
-			</div>
-
-			<label class="">Task completed: <span class="text-custom">100/100</span></label>
-			<div class="progress mb-1" style="height: 7px;">
-				<div class="progress-bar"
-					 role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"
-					 style="width: 100%;">
-				</div>
-			</div>
-
-		</div>
-	</div>
-	
-	<div class="col-xl-4">
-		<div class="card-box project-box ribbon-box">
-			<div class="ribbon ribbon-info">Development Phase 2</div>
-			<br><br><br>
-			<p class="text-muted text-uppercase mb-0 font-13">Webiste</p>
-			<h4 class="mt-0 mb-3"><a href="" class="text-dark">Host to Host SFI - Pefindo</a></h4>
-			<p class="text-muted font-13">Lorem Ipsum is simply dummy text of the printing and
-				typesetting industry. When an unknown printer took a galley of type and
-				scrambled it...<a href="#" class="font-600 text-muted">view more</a>
-			</p>
-
-			<ul class="list-inline">
-				<li class="list-inline-item">
-					<h4 class="mb-0">01/10/2018</h4>
-					<p class="text-muted" style="text-align:center;">Start Date</p>
-				</li>
-				<li class="list-inline-item pull-right">
-					<h4 class="mb-0">31/01/2019</h4>
-					<p class="text-muted" style="text-align:center;">End Date</p>
-				</li>
-			</ul>
-
-			<div class="project-members mb-4">
-				<label class="mr-3">Team :</label>
-				<a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Widiyanto Ramadhan">
-					<img src="assets/images/team/widi.jpg" class="rounded-circle thumb-sm" alt="friend" />
-				</a>
-				<a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Agie Annan">
-					<img src="assets/images/team/agie.jpeg" class="rounded-circle thumb-sm" alt="friend" />
-				</a>
-				<a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Nur Hidayat">
-					<img src="assets/images/team/dayat.jpg" class="rounded-circle thumb-sm" alt="friend" />
-				</a>
-			</div>
-
-			<label class="">Task completed: <span class="text-custom">70/100</span></label>
-			<div class="progress mb-1" style="height: 7px;">
-				<div class="progress-bar"
-					 role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"
-					 style="width: 70%;">
-				</div>
-			</div>
-
-		</div>
-	</div>
-	
-	<div class="col-xl-4">
-		<div class="card-box project-box ribbon-box">
-			<div class="ribbon ribbon-success">Go Live</div>
-			<br><br><br>
-			<p class="text-muted text-uppercase mb-0 font-13">Mobile</p>
-			<h4 class="mt-0 mb-3"><a href="" class="text-dark">Collection Tracking</a></h4>
-			<p class="text-muted font-13">Lorem Ipsum is simply dummy text of the printing and
-				typesetting industry. When an unknown printer took a galley of type and
-				scrambled it...<a href="#" class="font-600 text-muted">view more</a>
-			</p>
-
-			<ul class="list-inline">
-				<li class="list-inline-item">
-					<h4 class="mb-0">01/10/2018</h4>
-					<p class="text-muted" style="text-align:center;">Start Date</p>
-				</li>
-				<li class="list-inline-item pull-right">
-					<h4 class="mb-0">31/01/2019</h4>
-					<p class="text-muted" style="text-align:center;">End Date</p>
-				</li>
-			</ul>
-
-			<div class="project-members mb-4">
-				<label class="mr-3">Team :</label>
-				<a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Nur Hidayat">
-					<img src="assets/images/team/dayat.jpg" class="rounded-circle thumb-sm" alt="friend" />
-				</a>
-				<a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Widiyanto Ramadhan">
-					<img src="assets/images/team/widi.jpg" class="rounded-circle thumb-sm" alt="friend" />
-				</a>
-			</div>
-
-			<label class="">Task completed: <span class="text-custom">100/100</span></label>
-			<div class="progress mb-1" style="height: 7px;">
-				<div class="progress-bar"
-					 role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"
-					 style="width: 100%;">
-				</div>
-			</div>
-
-		</div>
-	</div>
-	
-	<div class="col-xl-4">
-		<div class="card-box project-box ribbon-box">
-			<div class="ribbon ribbon-success">Go Live</div>
-			<br><br><br>
-			<p class="text-muted text-uppercase mb-0 font-13">Website</p>
-			<h4 class="mt-0 mb-3"><a href="" class="text-dark">SAP Data Monitoring</a></h4>
-			<p class="text-muted font-13">Lorem Ipsum is simply dummy text of the printing and
-				typesetting industry. When an unknown printer took a galley of type and
-				scrambled it...<a href="#" class="font-600 text-muted">view more</a>
-			</p>
-
-			<ul class="list-inline">
-				<li class="list-inline-item">
-					<h4 class="mb-0">01/10/2018</h4>
-					<p class="text-muted" style="text-align:center;">Start Date</p>
-				</li>
-				<li class="list-inline-item pull-right">
-					<h4 class="mb-0">31/01/2019</h4>
-					<p class="text-muted" style="text-align:center;">End Date</p>
-				</li>
-			</ul>
-
-			<div class="project-members mb-4">
-				<label class="mr-3">Team :</label>
-				<a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Widiyanto Ramadhan">
-					<img src="assets/images/team/widi.jpg" class="rounded-circle thumb-sm" alt="friend" />
-				</a>
-				<a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Nur Hidayat">
-					<img src="assets/images/team/dayat.jpg" class="rounded-circle thumb-sm" alt="friend" />
-				</a>
-			</div>
-
-			<label class="">Task completed: <span class="text-custom">100/100</span></label>
-			<div class="progress mb-1" style="height: 7px;">
-				<div class="progress-bar"
-					 role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"
-					 style="width: 100%;">
-				</div>
-			</div>
-
-		</div>
-	</div>
+	<?php } ?>
 </div>
 <!-- end row -->
