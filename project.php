@@ -30,7 +30,6 @@
 </div>
 <!-- end row -->
 
-
 <div class="row">
 	<div class="col-xl-4">
 		<div class="card-box project-box ribbon-box">
@@ -65,7 +64,7 @@
 				</a>
 
 				<a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Agie Annan">
-					<img src="assets/images/team/agie.jpg" class="rounded-circle thumb-sm" alt="friend" />
+					<img src="assets/images/team/agie.jpeg" class="rounded-circle thumb-sm" alt="friend" />
 				</a>
 
 				<a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Khoirul Humam Awaludin">
@@ -117,7 +116,7 @@
 				</a>
 
 				<a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Agie Annan">
-					<img src="assets/images/team/agie.jpg" class="rounded-circle thumb-sm" alt="friend" />
+					<img src="assets/images/team/agie.jpeg" class="rounded-circle thumb-sm" alt="friend" />
 				</a>
 
 				<a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Khoirul Humam Awaludin">
@@ -207,7 +206,7 @@
 					<img src="assets/images/team/widi.jpg" class="rounded-circle thumb-sm" alt="friend" />
 				</a>
 				<a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Agie Annan">
-					<img src="assets/images/team/agie.jpg" class="rounded-circle thumb-sm" alt="friend" />
+					<img src="assets/images/team/agie.jpeg" class="rounded-circle thumb-sm" alt="friend" />
 				</a>
 				<a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Nur Hidayat">
 					<img src="assets/images/team/dayat.jpg" class="rounded-circle thumb-sm" alt="friend" />
