@@ -132,7 +132,7 @@
 					<input type="date" class="form-control" id="end_date" name="end_date">
 				</div>
 				<div class="form-group">
-				<label>Status</label>
+						<label>Status</label>
 						<select name="status" id="status" class="form-control" required>
 							<option selected disabled>Choose your Option</option>
 							<option value="Development">Development</option>
