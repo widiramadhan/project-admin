@@ -23,6 +23,10 @@ switch ($current_page) {
 	require_once('add-team.php');
 	break;
 		
+	case 'team-setup':
+	require_once('team-setup.php');
+	break;
+	
 	default:
 	require_once('404.php');
 }

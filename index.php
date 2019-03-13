@@ -57,7 +57,7 @@ require_once("config/connection.php");
 								<span class="menu-arrow"></span>
 								<ul class="nav-second-level collapse" aria-expanded="true" style="">
                                     <li><a href="index.php?page=team">Team Info</a></li>
-                                    <li><a href="#">Team Setup</a></li>
+                                    <li><a href="index.php?page=team-setup">Team Setup</a></li>
                                     
                                 </ul>
                                 </a>
