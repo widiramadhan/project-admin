@@ -5,7 +5,7 @@
 			<form action="team-action.php?action=save-setup" method="post" enctype="multipart/form-data" id="form">
 				<div class="form-group">
 					<label>Project Name</label>
-					<select name="product_name" id="product_name" class="form-control" required>
+					<select name="project_name" id="project_name" class="form-control" required>
 					<option selected disabled>Choose your Option</option>
 					<br>
 					<?php

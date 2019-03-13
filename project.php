@@ -55,7 +55,7 @@
 			<br><br><br>
 			<p class="text-muted text-uppercase mb-0 font-13"><?php echo $dataProject['CATEGORY_TITLE'];?></p>
 			<h4 class="mt-0 mb-3"><a href="" class="text-dark"><?php echo $dataProject['TITLE'];?></a></h4>
-			<p><?php echo $dataProject['DESCRIPTION'];?>...<a href="#" class="font-600 text-muted">view more</a>
+			<p class="text-muted font-13"><?php echo $dataProject['DESCRIPTION'];?>...<a href="#" class="font-600 text-muted">view more</a>
 			</p>
 
 			<ul class="list-inline">
