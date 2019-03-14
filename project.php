@@ -57,9 +57,9 @@
 					<h3 class="m-0 text-muted"><i class="fa fa-ellipsis-v"></i></h3>
 				</a>
 				<div class="dropdown-menu dropdown-menu-right" aria-labelledby="btnGroupDrop1">
-					<a class="dropdown-item" href="#"><i class="fa fa-edit"></i> Edit</a>
-					<a class="dropdown-item" href="#"><i class="fa fa-trash-o"></i> Delete</a>
-					<a class="dropdown-item" href="#"><i class="fa fa-plus-square"></i> Add Teams</a>
+					<a data-toggle="modal" data-id="<?php echo $dataProject['M_PROJECT_ID'];?>" data-target=".bs-example-modal-md-2" class="dropdown-item"><i class="fa fa-edit"></i> Edit</a>
+					<a class="dropdown-item" href="project-action.php?action=delete&id=<?php echo $dataProject['M_PROJECT_ID'];?>" title="Remove" onclick="return confirm('Are you sure you want to delete this item?');"><i class="fa fa-trash-o"></i> Delete</a>
+					<a class="dropdown-item" href="index.php?page=team-setup"><i class="fa fa-plus-square"></i> Add Teams</a>
 				</div>
 			</div>
 			<br><br><br>
@@ -106,7 +106,7 @@
 	<?php } ?>
 </div>
 <!-- end row -->
-<!-- MODAL  -->
+<!-- MODAL Add Project -->
 <div class="modal fade bs-example-modal-md" tabindex="-1" role="dialog" aria-hidden="true">
 	<div class="modal-dialog modal-lg">
 		<div class="modal-content">
@@ -122,7 +122,7 @@
 				</div>
 				<div class="form-group">
 					<label>Description</label>
-					<textarea class="form-control"  id="desc" name="desc" placeholder="Enter Description" style="min-width: 100%"></textarea>
+					<textarea class="form-control" id="desc" name="desc" placeholder="Enter Description" style="min-width: 100%"></textarea>
 				</div>
 				<div class="form-group">
 					<label>Category</label>
@@ -167,3 +167,25 @@
 		</div>
 	</div>
 </div>
+<!-- MODAL Edit Project -->
+<div class="modal fade bs-example-modal-md-2" id="addBookDialog2" tabindex="-1" role="dialog" aria-hidden="true"></div>
+
+<script src="assets/js/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+	$(document).on("click", ".open-AddBookDialog", function () {
+		var myBookId = $(this).data('id');
+		$(".modal-body #bookId").val( myBookId );
+		$.ajax({
+			type: 'post',
+			url: 'project-edit.php',
+			data: 'id=' +myBookId,
+			dataType: 'HTML',
+			success: function(value){
+				$("#addBookDialog2").html(value);
+			}
+		});
+	});
+});
+</script>
+	

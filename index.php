@@ -148,5 +148,7 @@ require_once("config/connection.php");
         <script src="assets/js/jquery.dashboard.init.js"></script>
         <script src="assets/js/jquery.core.js"></script>
         <script src="assets/js/jquery.app.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
     </body>
 </html>
