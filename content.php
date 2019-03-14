@@ -23,13 +23,16 @@ switch ($current_page) {
 	require_once('project-edit.php');
 	break;
 	
-	
 	case 'add-team':
 	require_once('add-team.php');
 	break;
 		
 	case 'team-setup':
 	require_once('team-setup.php');
+	break;
+	
+	case 'team-setup1':
+	require_once('team-setup1.php');
 	break;
 	
 	default:
