@@ -69,7 +69,7 @@ if($action == 'save'){
 	$status = $_POST['status'];
 	$task = $_POST['task'];
 	
-	$queryUpdate = "{call SP_UPDATE_BRANCH(?,?,?,?,?,?,?)}"; 
+	$queryUpdate = "{call SP_UPDATE_PROJECT_TEAM(?,?,?,?,?,?,?,?)}"; 
 	$parameterUpdate = array(
 					array($id, SQLSRV_PARAM_IN),
 					array($title, SQLSRV_PARAM_IN),
@@ -93,7 +93,7 @@ if($action == 'save'){
 					});  
 				},10); 
 					window.setTimeout(function(){ 
-						window.location.replace("index.php?page=branch");
+						window.location.replace("index.php?page=project");
 					} ,2000); 
 			  </script>';
 	}else{

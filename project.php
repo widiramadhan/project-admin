@@ -57,7 +57,7 @@
 					<h3 class="m-0 text-muted"><i class="fa fa-ellipsis-v"></i></h3>
 				</a>
 				<div class="dropdown-menu dropdown-menu-right" aria-labelledby="btnGroupDrop1">
-					<a data-toggle="modal" data-id="<?php echo $dataProject['M_PROJECT_ID'];?>" data-target=".bs-example-modal-md-2" class="dropdown-item"><i class="fa fa-edit"></i> Edit</a>
+					<a data-toggle="modal" data-id="<?php echo $dataProject['M_PROJECT_ID'];?>" data-target=".bs-example-modal-md-2" class="dropdown-item open-AddBookDialog"><i class="fa fa-edit"></i> Edit</a>
 					<a class="dropdown-item" href="project-action.php?action=delete&id=<?php echo $dataProject['M_PROJECT_ID'];?>" title="Remove" onclick="return confirm('Are you sure you want to delete this item?');"><i class="fa fa-trash-o"></i> Delete</a>
 					<a class="dropdown-item" href="index.php?page=team-setup"><i class="fa fa-plus-square"></i> Add Teams</a>
 				</div>
@@ -135,11 +135,11 @@
 				</div>	
 				<div class="form-group">
 					<label>Start Project</label>
-					<input type="date" class="form-control" id="start_date" name="start_date">
+					<input type="text" class="form-control datepicker" id="start_date" name="start_date" >
 				</div>
 				<div class="form-group">
 					<label>End Project</label>
-					<input type="date" class="form-control" id="end_date" name="end_date">
+					<input type="text" class="form-control datepicker" id="end_date" name="end_date">
 				</div>
 				<div class="form-group">
 						<label>Status</label>

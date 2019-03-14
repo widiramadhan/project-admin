@@ -1,5 +1,5 @@
+
 <?php 
-session_start();
 require_once("config/connection.php");
 
 		$id=$_POST['id'];
@@ -12,36 +12,37 @@ require_once("config/connection.php");
 ?>
 <div class="modal-dialog modal-lg">
 	<div class="modal-content">
-			<form action="project-action.php?action=update&id=<?php echo $r['M_PROJECT_ID'];?>" method="post" enctype="multipart/form-data" id="form">
+			<form action="project-action.php?action=update" method="post" enctype="multipart/form-data" id="form">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
 					<h4 class="modal-title" id="myModalLabel">Create Project</h4>
 				</div>
 				<div class="modal-body">
+				<input type="hidden" name="id" value="<?php echo $r['M_PROJECT_ID'];?>" >
 				<div class="form-group">
 					<label>Title</label>
 					<input type="text" class="form-control" id="title" name="title" placeholder="Enter Title" value="<?php echo $r['TITLE'];?>">
 				</div>
 				<div class="form-group">
 					<label>Description</label>
-					<textarea class="form-control"  id="desc" name="desc" placeholder="Enter Description" style="min-width: 100%" value="<?php echo $r['DESCRIPTION'];?>"></textarea>
+					<textarea class="form-control"  id="desc" name="desc" placeholder="Enter Description" style="min-width: 100%"><?php echo $r['DESCRIPTION'];?></textarea>
 				</div>
 				<div class="form-group">
 					<label>Category</label>
 					<select name="category" id="category" class="form-control" required>
 						<option value="<?php echo $r['CATEGORY_ID'];?>"><?php echo $r['CATEGORY_TITLE'];?></option>
-						<option value="1">Website</option>
-						<option value="2">Mobile</option>
-						<option value="3">Website & Mobile</option>
+						<option value="1">WEBSITE</option>
+						<option value="2">MOBILE</option>
+						<option value="3">WEBSITE & MOBILE</option>
 					</select>
 				</div>	
 				<div class="form-group">
 					<label>Start Project</label>
-					<input type="date" class="form-control" id="start_date" name="start_date"  value="<?php echo $r['START_DATE'];?>" >
+				<input type="text" class="form-control datepicker" id="start_date" name="start_date" value="<?php echo $r['START_DATE']->format("Y-m-d");?> ">
 				</div>
 				<div class="form-group">
 					<label>End Project</label>
-					<input type="date" class="form-control" id="end_date" name="end_date"  value="<?php echo $r['END_DATE'];?>">
+					<input type="text" class="form-control datepicker" id="end_date" name="end_date"  value="<?php echo $r['END_DATE']->format("Y-m-d");?>">
 				</div>
 				<div class="form-group">
 						<label>Status</label>
@@ -68,19 +69,14 @@ require_once("config/connection.php");
 			</form>
 		</div>
 	</div>
-	<script type="text/javascript">
-$(document).ready(function() {
-	$('#product_type').change(function() {
-		$.get( "getCategory.php",{
-			product_type:$('#product_type').val()
-		}, function(data_category) {
-			var type_value = $('#product_type').val();
-				$('#category').empty();
-				$.each(data_category, function (index, value) {
-					$('#category').append('<option value="'+value.CATEGORY_CODE+'">'+value.CATEGORY_NAME+'</option>');
-				});
-			});
-	});
-});
-</script>
-
+	  <script src="assets/js/jquery.min.js"></script>	
+		<script src="assets/js/bootstrap-datepicker.min.js"></script>
+<script type="text/javascript">
+		 $(function(){
+		  $(".datepicker").datepicker({
+			  format: 'yyyy-mm-dd',
+			  autoclose: true,
+			  todayHighlight: true,
+		  });
+		 });
+		</script>

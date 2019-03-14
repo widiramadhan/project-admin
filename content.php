@@ -19,6 +19,11 @@ switch ($current_page) {
 	require_once('project.php');
 	break;
 	
+	case 'project-edit':
+	require_once('project-edit.php');
+	break;
+	
+	
 	case 'add-team':
 	require_once('add-team.php');
 	break;

@@ -18,6 +18,8 @@ require_once("config/connection.php");
         <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
 		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
         <script src="assets/js/modernizr.min.js"></script>
+	    <link href="assets/css/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css" />
+		
     </head>
     <body>
         <div id="wrapper">
@@ -131,7 +133,8 @@ require_once("config/connection.php");
                 </div>
             </div>
         </div>
-        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/jquery.min.js"></script>	
+		<script src="assets/js/bootstrap-datepicker.min.js"></script>
         <script src="assets/js/bootstrap.bundle.min.js"></script>
         <script src="assets/js/metisMenu.min.js"></script>
         <script src="assets/js/waves.js"></script>
@@ -148,7 +151,14 @@ require_once("config/connection.php");
         <script src="assets/js/jquery.dashboard.init.js"></script>
         <script src="assets/js/jquery.core.js"></script>
         <script src="assets/js/jquery.app.js"></script>
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-
+		<script type="text/javascript">
+		 $(function(){
+		  $(".datepicker").datepicker({
+			  format: 'yyyy-mm-dd',
+			  autoclose: true,
+			  todayHighlight: true,
+		  });
+		 });
+		</script>
     </body>
 </html>
