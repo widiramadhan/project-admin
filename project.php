@@ -52,6 +52,16 @@
 	<div class="col-xl-4">
 		<div class="card-box project-box ribbon-box">
 			<div class="ribbon <?php echo $ribbon;?>"><?php echo $dataProject['STATUS'];?></div>
+			<div class="dropdown float-right">
+				<a href="#" class="dropdown-toggle card-drop arrow-none" data-toggle="dropdown" aria-expanded="false">
+					<h3 class="m-0 text-muted"><i class="fa fa-ellipsis-v"></i></h3>
+				</a>
+				<div class="dropdown-menu dropdown-menu-right" aria-labelledby="btnGroupDrop1">
+					<a class="dropdown-item" href="#"><i class="fa fa-edit"></i> Edit</a>
+					<a class="dropdown-item" href="#"><i class="fa fa-trash-o"></i> Delete</a>
+					<a class="dropdown-item" href="#"><i class="fa fa-plus-square"></i> Add Teams</a>
+				</div>
+			</div>
 			<br><br><br>
 			<p class="text-muted text-uppercase mb-0 font-13"><?php echo $dataProject['CATEGORY_TITLE'];?></p>
 			<h4 class="mt-0 mb-3"><a href="" class="text-dark"><?php echo $dataProject['TITLE'];?></a></h4>
