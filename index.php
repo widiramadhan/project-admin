@@ -53,8 +53,8 @@ require_once("config/connection.php");
                                 </a>
                             </li>
 							<li>
-                                <a  > <i class="fa fa-users"></i> <span> Team </span>
-								<span class="menu-arrow"></span>
+                                <a href="#"> <i class="fa fa-users"></i> <span> Team </span>
+								<span class="fa fa-chevron-down pull-right"></span>
 								<ul class="nav-second-level collapse" aria-expanded="true" style="">
                                     <li><a href="index.php?page=team">Team Info</a></li>
                                     <li><a href="index.php?page=team-setup">Team Setup</a></li>

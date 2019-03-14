@@ -27,7 +27,7 @@
 						<a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="<?php echo $dataTeam['PHONE'];?>"><i class="fa fa-phone"></i></a>
 					</li>
 				</ul>
-				<button type="button" class="btn btn-primary m-t-20 btn-rounded btn-bordered waves-effect w-md waves-light">Detail</button>
+				<button type="button" class="btn btn-custom m-t-20 btn-rounded btn-bordered waves-effect w-md waves-light">Detail</button>
 			</div>
 		</div>
 	</div>

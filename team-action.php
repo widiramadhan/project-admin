@@ -1,4 +1,6 @@
 <script src="assets/js/jquery.min.js"></script>
+<link rel="stylesheet" href="assets/lib/sweetalert/sweetalert.min.css">
+<script src="assets/lib/sweetalert/sweetalert.min.js"></script>
 <?php
 require_once("config/connection.php");
 $action = $_GET['action'];
