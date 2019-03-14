@@ -18,7 +18,6 @@ require_once("config/connection.php");
         <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
 		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
         <script src="assets/js/modernizr.min.js"></script>
-		
     </head>
     <body>
         <div id="wrapper">
