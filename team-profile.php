@@ -58,21 +58,47 @@ $dataProfile = sqlsrv_fetch_array($exec)
 		</div>
 	</div>
 </div>
+<div class="col-md-12">
+<div class="card-box">
+	<h4 class="header-title mb-3">My Projects</h4>
+	<div class="table-responsive">
+		<table class="table mb-0">
+			<thead>
+			<tr>
+				<th style="vertical-align:middle;text-align:center;">No</th>
+				<th style="vertical-align:middle;text-align:center;">Project Name</th>
+				<th style="vertical-align:middle;text-align:center;">Category</th>
+				<th style="vertical-align:middle;text-align:center;">Start Date</th>
+				<th style="vertical-align:middle;text-align:center;">End Date</th>
+				<th style="vertical-align:middle;text-align:center;">Status</th>
+				<th style="vertical-align:middle;text-align:center;">Task Completed</th>
+			</tr>
+			</thead>
+			<tbody>
+			<?php
+				$queryTeamProject = "{call SP_GET_TEAM_PROJECT(?)}";
+				$paramsTeamProject = array(array($teamid, SQLSRV_PARAM_IN));  
+				$execTeamProject = sqlsrv_query( $conn, $queryTeamProject, $paramsTeamProject) or die( print_r( sqlsrv_errors(), true));
+				$no = 0;
+		
+				while($dataTeamProject = sqlsrv_fetch_array($execTeamProject)){
+					$no++;				
+			?>
+			<tr>
+				<td style="vertical-align:middle;text-align:center;"><?php echo $no;?></td>
+				<td style="vertical-align:middle;text-align:center;"><?php echo $dataTeamProject['TITLE'];?></td>
+				<td style="vertical-align:middle;text-align:center;"><?php echo $dataTeamProject['CATEGORY_TITLE'];?></td>
+				<td style="vertical-align:middle;text-align:center;"><?php echo $dataTeamProject['START_DATE']->format('Y-m-d');?></td>
+				<td style="vertical-align:middle;text-align:center;"><?php echo $dataTeamProject['END_DATE']->format('Y-m-d');?></td>
+				<td style="vertical-align:middle;text-align:center;"><?php echo $dataTeamProject['STATUS'];?></td>
+				<td style="vertical-align:middle;text-align:center;"><?php echo $dataTeamProject['TASK_COMPLETED'];?> % </td>
+			
+			</tr>
+			<?php } ?>
+		
+			</tbody>
+		</table>
+	</div>
+</div>
+</div>
 <script src="vendor/jquery/jquery.min.js"></script>
-<script>
-$(document).ready(function() {
-	$('#example').DataTable({
-		"lengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
-		"order": [[ 0, "asc" ]],
-		"columnDefs": [ {
-		"targets": [0,1],
-			"orderable": true
-		} ]
-	});
-} );
-
-$('#selectAll').click(function(e){
-    var table= $(e.target).closest('table');
-    $('td input:checkbox',table).prop('checked',this.checked);
-});
-</s
