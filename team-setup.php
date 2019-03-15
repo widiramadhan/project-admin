@@ -42,7 +42,7 @@
 <script src="assets/js/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
-	$('#project').on('ready', function() {
+	$('#project').on('change', function() {
 		var projectID = $('#project').val();
 		$.get( "get-team.php",{
 			project:$('#project').val()

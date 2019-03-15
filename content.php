@@ -35,6 +35,11 @@ switch ($current_page) {
 	require_once('team-setup1.php');
 	break;
 	
+	case 'team-profile':
+	require_once('team-profile.php');
+	break;
+	
+	
 	default:
 	require_once('404.php');
 }
