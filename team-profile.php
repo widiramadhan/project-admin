@@ -35,7 +35,7 @@ $dataProfile = sqlsrv_fetch_array($exec)
 		<div class="card-box">
 			<h4 class="header-title mt-0 m-b-20 text-center">Change Data Profile</h4>
 			<div class="panel-body">
-				<form method="post" id="editProfile" action="">
+				<form method="post" id="editProfile" action="team-action.php?action=update">
 					<div class="form-group">
 						<label>Full Name</label>
 						<input type="text" class="form-control" name="fullname" id="fullname" disabled value="<?php echo $dataProfile['FULLNAME'];?>">
@@ -53,8 +53,14 @@ $dataProfile = sqlsrv_fetch_array($exec)
 						<input type="text" class="form-control" name="posistion" id="posistion" disabled value="<?php echo $dataProfile['JOB'];?>">
 					</div>
 					<div class="form-group">
+						<label>Photo <span class="mandatory">*</span></label>				
+						<div style="margin-bottom:10px;">
+						<input type="file" name="img" id="img" required style="margin-bottom:5px;" disabled />
+						</div>
+					</div>
+					<div class="form-group">
 					<button style="width:100%" id="editBox" type="button" class="btn btn-custom btn-rounded w-md waves-effect waves-light mb-4" onclick="enableTextBox()">Edit</button>
-					<button style="width:100%" id="updateBox" type="button" class="btn btn-custom btn-rounded w-md waves-effect waves-light mb-4" style="visibility:hidden">Update</button>
+					<button style="width:100%" id="updateBox" type="submit" class="btn btn-custom btn-rounded w-md waves-effect waves-light mb-4" hidden>Update</button>
 					</div>
 				</form>
 			</div>
@@ -95,7 +101,6 @@ $dataProfile = sqlsrv_fetch_array($exec)
 				<td style="vertical-align:middle;text-align:center;"><?php echo $dataTeamProject['END_DATE']->format('Y-m-d');?></td>
 				<td style="vertical-align:middle;text-align:center;"><?php echo $dataTeamProject['STATUS'];?></td>
 				<td style="vertical-align:middle;text-align:center;"><?php echo $dataTeamProject['TASK_COMPLETED'];?> % </td>
-			
 			</tr>
 			<?php } ?>		
 			</tbody>
@@ -109,7 +114,8 @@ document.getElementById("fullname").disabled = false;
 document.getElementById("email").disabled = false;
 document.getElementById("phone").disabled = false;
 document.getElementById("posistion").disabled = false;
-document.getElementById('editBox').style.visibility="hidden";
-document.getElementById('updateBox').style.visibility="visible";
+document.getElementById("img").disabled = false;
+document.getElementById('editBox').hidden=true;
+document.getElementById('updateBox').hidden=false;
 }
-    </script>
+</script>
