@@ -35,24 +35,27 @@ $dataProfile = sqlsrv_fetch_array($exec)
 		<div class="card-box">
 			<h4 class="header-title mt-0 m-b-20 text-center">Change Data Profile</h4>
 			<div class="panel-body">
-				<form method="post" action="">
+				<form method="post" id="editProfile" action="">
 					<div class="form-group">
 						<label>Full Name</label>
-						<input type="text" class="form-control" name="email" disabled value="<?php echo $dataProfile['FULLNAME'];?>">
+						<input type="text" class="form-control" name="fullname" id="fullname" disabled value="<?php echo $dataProfile['FULLNAME'];?>">
 					</div>
 					<div class="form-group">
 						<label>Email</label>
-						<input type="text" class="form-control" name="email" disabled value="<?php echo $dataProfile['EMAIL'];?>">
+						<input type="text" class="form-control" name="email" id="email" disabled value="<?php echo $dataProfile['EMAIL'];?>">
 					</div>
 					<div class="form-group">
 						<label>Phone</label>
-						<input type="text" class="form-control" name="phone" disabled value="<?php echo $dataProfile['PHONE'];?>">
+						<input type="text" class="form-control" name="phone"  id="phone" disabled value="<?php echo $dataProfile['PHONE'];?>">
 					</div>
 					<div class="form-group">
 						<label>Position</label>
-						<input type="text" class="form-control" name="phone" disabled value="<?php echo $dataProfile['JOB'];?>">
+						<input type="text" class="form-control" name="posistion" id="posistion" disabled value="<?php echo $dataProfile['JOB'];?>">
 					</div>
-					<button style="width:100%" type="submit" class="btn btn-custom btn-rounded w-md waves-effect waves-light mb-4">Edit</button>
+					<div class="form-group">
+					<button style="width:100%" id="editBox" type="button" class="btn btn-custom btn-rounded w-md waves-effect waves-light mb-4" onclick="enableTextBox()">Edit</button>
+					<button style="width:100%" id="updateBox" type="button" class="btn btn-custom btn-rounded w-md waves-effect waves-light mb-4" style="visibility:hidden">Update</button>
+					</div>
 				</form>
 			</div>
 		</div>
@@ -94,11 +97,19 @@ $dataProfile = sqlsrv_fetch_array($exec)
 				<td style="vertical-align:middle;text-align:center;"><?php echo $dataTeamProject['TASK_COMPLETED'];?> % </td>
 			
 			</tr>
-			<?php } ?>
-		
+			<?php } ?>		
 			</tbody>
 		</table>
 	</div>
 </div>
 </div>
-<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/jquery/jquery.min.js"></script> <script>
+function enableTextBox() {
+document.getElementById("fullname").disabled = false;
+document.getElementById("email").disabled = false;
+document.getElementById("phone").disabled = false;
+document.getElementById("posistion").disabled = false;
+document.getElementById('editBox').style.visibility="hidden";
+document.getElementById('updateBox').style.visibility="visible";
+}
+    </script>

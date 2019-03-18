@@ -13,7 +13,7 @@ $r = sqlsrv_fetch_array($execSP);
 				<div class="form-group">
 					<label>Project Name</label>
 					<select name="project_name" id="project" class="form-control" selected required>
-						<option  value="<?php echo $r['M_PROJECT_ID'];?>"><?php echo $r['TITLE'];?></option>
+						<option  value="<?php echo $r['M_PROJECT_ID'];?>"><?php echo $r['TITLE'];?></option>	
 						<?php
 							$callProject = "{call SP_GET_PROJECT_STATUS}"; 
 							$execProject = sqlsrv_query( $conn, $callProject) or die( print_r( sqlsrv_errors(), true));
@@ -49,7 +49,6 @@ $r = sqlsrv_fetch_array($execSP);
 <script src="assets/js/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
-	$('#project').on('change', function() {
 		var projectID = $('#project').val();
 		$.get( "get-team.php",{
 			project:$('#project').val()
@@ -59,8 +58,7 @@ $(document).ready(function(){
 			$.each(data_team, function (index, value) {
 				$('#team').append('<div class="col-md-6" style="padding-top:10px;padding-bottom:10px"><input type="checkbox" name="teams[]" value="'+value.TEAM_ID+'"><img src="assets/images/team/'+value.IMG+'" class="rounded-circle thumb-sm" alt="friend" style="margin-left:10px;margin-right:10px;" /> '+value.FULLNAME+'');
 			});
-		});
-	});
-		
+		});	
+document.getElementById("project").disabled = true;
 });
 </script>

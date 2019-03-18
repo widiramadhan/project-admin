@@ -1,3 +1,4 @@
+
 <div class="row">
 	<div class="col-sm-4">
 		<button type="button" class="btn btn-custom btn-rounded w-md waves-effect waves-light mb-4" data-toggle="modal" data-target=".bs-example-modal-md"><i class="fa fa-plus-circle"></i> Create Project</button>
@@ -186,6 +187,8 @@ $(document).ready(function() {
 			}
 		});
 	});
+	
+	
 });
 </script>
 	
