@@ -43,6 +43,10 @@ switch ($current_page) {
 	require_once('team-profile.php');
 	break;
 	
+	case 'bisreq':
+	require_once('bisreq.php');
+	break;
+	
 	
 	default:
 	require_once('404.php');

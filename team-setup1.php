@@ -9,10 +9,12 @@ $r = sqlsrv_fetch_array($execSP);
 	<div class="col-lg-6">
 		<div class="card-box">
 			<h4 class="m-t-0 m-b-30 header-title">Add Team Mapping</h4>
-			<form action="team-action.php?action=save-setup" method="post" enctype="multipart/form-data" id="form">
+			<form action="team-action.php?action=save-setup1" method="post" enctype="multipart/form-data" id="form">
+			<input type="hidden" id="id" name="id" value="<?php echo $r['M_PROJECT_ID'];?>">
 				<div class="form-group">
 					<label>Project Name</label>
 					<select name="project_name" id="project" class="form-control" selected required>
+					
 						<option  value="<?php echo $r['M_PROJECT_ID'];?>"><?php echo $r['TITLE'];?></option>	
 						<?php
 							$callProject = "{call SP_GET_PROJECT_STATUS}"; 

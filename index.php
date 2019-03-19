@@ -64,6 +64,11 @@ require_once("config/connection.php");
                                 </ul>
                                 </a>
                             </li>
+							<li>
+                                <a href="index.php?page=bisreq">
+                                    <i class="fa fa-clipboard"></i> <span> Bisreq </span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                     <div class="clearfix"></div>

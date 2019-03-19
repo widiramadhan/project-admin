@@ -35,11 +35,12 @@ $dataProfile = sqlsrv_fetch_array($exec)
 		<div class="card-box">
 			<h4 class="header-title mt-0 m-b-20 text-center">Change Data Profile</h4>
 			<div class="panel-body">
-				<form method="post" id="editProfile" action="team-action.php?action=update">
+				<form method="post" action="team-action.php?action=update" enctype="multipart/form-data" id="form">
+				<input type="hidden" id="id" name="id" value="<?php echo $dataProfile['TEAM_ID'];?>">
 					<div class="form-group">
 						<label>Full Name</label>
-						<input type="text" class="form-control" name="fullname" id="fullname" disabled value="<?php echo $dataProfile['FULLNAME'];?>">
-						<input type="hidden" class="form-control" name="id" id="id" disabled value="<?php echo $dataProfile['TEAM_ID'];?>">
+						<input type="text" class="form-control" name="name" id="name" disabled value="<?php echo $dataProfile['FULLNAME'];?>">
+						
 					</div>
 					<div class="form-group">
 						<label>Email</label>
@@ -111,7 +112,7 @@ $dataProfile = sqlsrv_fetch_array($exec)
 </div>
 <script src="vendor/jquery/jquery.min.js"></script> <script>
 function enableTextBox() {
-document.getElementById("fullname").disabled = false;
+document.getElementById("name").disabled = false;
 document.getElementById("email").disabled = false;
 document.getElementById("phone").disabled = false;
 document.getElementById("posistion").disabled = false;
