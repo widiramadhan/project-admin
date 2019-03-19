@@ -65,8 +65,8 @@
 			</div>
 			<br><br><br>
 			<p class="text-muted text-uppercase mb-0 font-13"><?php echo $dataProject['CATEGORY_TITLE'];?></p>
-			<h4 class="mt-0 mb-3"><a href="" class="text-dark"><?php echo $dataProject['TITLE'];?></a></h4>
-			<p class="text-muted font-13"><?php echo $dataProject['DESCRIPTION'];?>...<a href="#" class="font-600 text-muted">view more</a>
+			<h4 class="mt-0 mb-3"><a href="index.php?page=project-detail&id=<?php echo $dataProject['M_PROJECT_ID'];?>" class="text-dark"><?php echo $dataProject['TITLE'];?></a></h4>
+			<p class="text-muted font-13"><?php echo $dataProject['DESCRIPTION'];?>...<a href="index.php?page=project-detail&id=<?php echo $dataProject['M_PROJECT_ID'];?>" class="font-600 text-muted">view more</a>
 			</p>
 
 			<ul class="list-inline">

@@ -55,18 +55,19 @@ if($action == 'save'){
 					} ,2000); 
 			  </script>';
 	}	
-}else if($action == 'update'){
+}
+else if($action == 'update'){
 	$id=$_POST['id'];
-	$name = $_POST['name'];
-	$job = $_POST['job'];
+	$name = $_POST['fullname'];
+	$job = $_POST['posistion'];
 	$email = $_POST['email'];
-	$nohp = $_POST['nohp'];
-	$img=$_FILES['img']['name'];
+	$nohp = $_POST['phone'];
+	$img=$_FILES['img']['fullname'];
 	
-	$temp = explode(".", $_FILES["img"]["name"]);//untuk mengambil nama file gambarnya saja tanpa format gambarnya
+	$temp = explode(".", $_FILES["img"]["fullname"]);//untuk mengambil nama file gambarnya saja tanpa format gambarnya
 	$nama_baru = round(microtime(true)) . '.' . end($temp);//fungsi untuk membuat nama acak
 	
-	$queryInsert = "{call SP_INSERT_TEAM(?,?,?,?,?,?)}"; 
+	$queryInsert = "{call SP_UPDATE_TEAM(?,?,?,?,?,?)}"; 
 	$parameterInsert = array(
 					array($id, SQLSRV_PARAM_IN),
 					array($name, SQLSRV_PARAM_IN),
@@ -108,7 +109,8 @@ if($action == 'save'){
 					} ,2000); 
 			  </script>';
 	}	
-}
+ }
+
 
 
 //Save team setup

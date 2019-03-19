@@ -39,6 +39,7 @@ $dataProfile = sqlsrv_fetch_array($exec)
 					<div class="form-group">
 						<label>Full Name</label>
 						<input type="text" class="form-control" name="fullname" id="fullname" disabled value="<?php echo $dataProfile['FULLNAME'];?>">
+						<input type="hidden" class="form-control" name="id" id="id" disabled value="<?php echo $dataProfile['TEAM_ID'];?>">
 					</div>
 					<div class="form-group">
 						<label>Email</label>
