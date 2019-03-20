@@ -1,3 +1,6 @@
+<script src="assets/js/jquery.min.js"></script>
+<link rel="stylesheet" href="assets/lib/sweetalert/sweetalert.min.css">
+<script src="assets/lib/sweetalert/sweetalert.min.js"></script>
 <div class="row">
 	<div class="col-sm-4">
 		 <button class="btn btn-custom btn-rounded w-md waves-effect waves-light mb-4" data-toggle="modal" data-target=".bs-example-modal-md"><i class="fa fa-plus-circle"></i> Add Team </button>
@@ -11,10 +14,14 @@
 	?>
 	<div class="col-lg-3">
 		<div class="text-center card-box">
-			<div class="member-card pt-2 pb-2">
+			<div class="dropdown float-right">				
+				<a href="team-action.php?action=delete&id=<?php echo $dataTeam['TEAM_ID'];?>" title="Remove" class="delete-data"><i class="fa fa-close" style="color:grey;"></i></a>
+			</div>
+			<div class="member-card pt-2 pb-2">				
 				<div class="thumb-lg member-thumb m-b-10 mx-auto">
 					<img src="assets/images/team/<?php echo $dataTeam['IMG'];?>" class="rounded-circle img-thumbnail" alt="profile-image" style="width:100px;height:90px;">
 				</div>
+				
 				<div class="">
 					<h4 class="m-b-5"><?php echo $dataTeam['FULLNAME'];?></h4>
 					<p class="text-muted"><?php echo $dataTeam['JOB'];?><span></p>
@@ -75,3 +82,21 @@
 		</div>
 	</div>
 </div>
+<script>
+	$(document).ready(function($){
+            $('.delete-data').on('click',function(){
+                var getLink = $(this).attr('href');
+                swal({
+                        title: 'Are you sure?',
+                        text: 'Delete this data?',
+                        type: 'warning',
+                        html: true,
+                        confirmButtonColor: '#d9534f',
+                        showCancelButton: true,
+                        },function(){
+                        window.location.href = getLink
+                    });
+                return false;
+            });
+        });
+</script>

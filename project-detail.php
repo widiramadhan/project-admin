@@ -23,20 +23,9 @@ $status=$dataProject['STATUS'];
 <div class="row">
 	<div class="col-xl-8">
 		<div class="card-box project-box ribbon-box">
-		<ul class="nav nav-tabs tabs-bordered">
-		<li class="nav-item">
-			<a href="#detail-b1" data-toggle="tab" aria-expanded="false" class="nav-link active show">
-				<i class="icon-monitor mr-2"></i> Project Detail
-			</a>
-		</li>
-		<li class="nav-item">
-			<a href="#bisreq-b1" data-toggle="tab" aria-expanded="true" class="nav-link">
-				<i class="icon-head mr-2"></i>Doc
-			</a>
-		</li>
-		</ul>
+		
 		<div class="tab-content">
-        <div class="tab-pane active show" id="detail-b1">
+       
 			<div class="ribbon <?php echo $ribbon;?>"><?php echo $dataProject['STATUS'];?></div>
 			<div class="dropdown float-right">
 				<a href="#" class="dropdown-toggle card-drop arrow-none" data-toggle="dropdown" aria-expanded="false">
@@ -54,6 +43,19 @@ $status=$dataProject['STATUS'];
 			<p class="text-muted font-13"><?php echo $dataProject['DESCRIPTION'];?><a href="index.php?page=project-detail&id=<?php echo $dataProject['M_PROJECT_ID'];?>" class="font-600 text-muted"></a>
 			</p>
 
+			<ul class="nav nav-tabs tabs-bordered">
+			<li class="nav-item">
+				<a href="#detail-b1" data-toggle="tab" aria-expanded="false" class="nav-link active show">
+					<i class="icon-monitor mr-2"></i> Project Detail
+				</a>
+			</li>
+			<li class="nav-item">
+				<a href="#bisreq-b1" data-toggle="tab" aria-expanded="true" class="nav-link">
+					<i class="icon-head mr-2"></i>Doc
+				</a>
+			</li>
+			</ul>
+ 			<div class="tab-pane active show" id="detail-b1">
 			<ul class="list-inline">
 				<li class="list-inline-item">
 					<h4 class="mb-0"><?php echo $dataProject['START_DATE']->format("Y-m-d");?></h4>
@@ -67,12 +69,12 @@ $status=$dataProject['STATUS'];
 
 			<div class="project-members mb-4">
 				<label class="mr-3">Team :</label>
-				<?php
-					$callTeam = "{call SP_GET_PROJECT_TEAM_MAPPING(?)}"; 
-					$paramsTeam= array(array($dataProject['M_PROJECT_ID'], SQLSRV_PARAM_IN));  
-					$execTeam = sqlsrv_query( $conn, $callTeam,$paramsTeam) or die( print_r( sqlsrv_errors(), true));
-					while($dataTeam = sqlsrv_fetch_array($execTeam)){
-				?>
+					<?php
+						$callTeam = "{call SP_GET_PROJECT_TEAM_MAPPING(?)}"; 
+						$paramsTeam= array(array($dataProject['M_PROJECT_ID'], SQLSRV_PARAM_IN));  
+						$execTeam = sqlsrv_query( $conn, $callTeam,$paramsTeam) or die( print_r( sqlsrv_errors(), true));
+						while($dataTeam = sqlsrv_fetch_array($execTeam)){
+					?>
 				<a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="<?php echo $dataTeam["FULLNAME"];?>">
 					<img src="assets/images/team/<?php echo $dataTeam["IMG"];?>" class="rounded-circle thumb-sm" alt="friend" />
 					
@@ -87,9 +89,10 @@ $status=$dataProject['STATUS'];
 					 style="width: <?php echo $dataProject['TASK_COMPLETED'];?>%;">
 				</div>
 			</div>
-
+			<br>			
 		</div>
-		 <div class="tab-pane show" id="bisreq-b1">
+		
+		 <div class="tab-pane show" id="bisreq-b1">		 	
 			<h4 class="header-title m-b-30">My Files</h4>
 			<div class="row">
 				<div class="col-lg-3">
@@ -109,9 +112,6 @@ $status=$dataProject['STATUS'];
 			</div>
 		</div>
 		</div>
-
-			
-
 		</div>
 	</div>
 
