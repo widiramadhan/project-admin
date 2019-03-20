@@ -19,7 +19,9 @@ require_once("config/connection.php");
 		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
         <script src="assets/js/modernizr.min.js"></script>
 	    <link href="assets/css/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css" />
-		
+	
+
+        
     </head>
     <body>
         <div id="wrapper">
@@ -138,6 +140,7 @@ require_once("config/connection.php");
                 </div>
             </div>
         </div>
+		
         <script src="assets/js/jquery.min.js"></script>	
 		<script src="assets/js/bootstrap-datepicker.min.js"></script>
         <script src="assets/js/bootstrap.bundle.min.js"></script>

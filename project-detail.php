@@ -1,3 +1,5 @@
+
+
 <?php
 $projectId=$_GET['id'];
 $callProject = "{call SP_GET_PROJECT_ID(?)}"; 
@@ -76,7 +78,7 @@ $status=$dataProject['STATUS'];
 					
 				</a>
 				<?php } ?>
-				<a style="margin-left:2px" href="#"><span class="add-new-plus"><i class="fa fa-plus"></i> </span></a>
+				<a style="margin-left:2px" href="index.php?page=team-setup1&id=<?php echo $dataProject['M_PROJECT_ID'];?>"><span class="add-new-plus"><i class="fa fa-plus"></i> </span></a>
 			</div>
 			<label class="">Task completed: <span class="text-custom"><?php echo $dataProject['TASK_COMPLETED'];?>/100</span></label>
 			<div class="progress mb-1" style="height: 7px;">
@@ -88,8 +90,23 @@ $status=$dataProject['STATUS'];
 
 		</div>
 		 <div class="tab-pane show" id="bisreq-b1">
-			<p>Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.</p>
-			<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
+			<h4 class="header-title m-b-30">My Files</h4>
+			<div class="row">
+				<div class="col-lg-3">
+					<div class="file-man-box">
+						<a href="" class="file-close"><i class="fa fa-times-circle" style="color:red"></i></a>
+						<div class="file-img-box">
+							<img src="assets/images/file_icons/pdf.svg" alt="icon">
+						</div>
+						<a href="#" class="file-download"><i class="fa fa-download"></i> </a>
+						<div class="file-man-title">
+							<h5 class="mb-0 text-overflow">invoice_project.pdf</h5>
+							<p class="mb-0"><small>568.8 kb</small></p>
+						</div>
+					</div>
+				</div>
+
+			</div>
 		</div>
 		</div>
 
