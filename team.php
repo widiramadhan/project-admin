@@ -83,20 +83,20 @@
 	</div>
 </div>
 <script>
-	$(document).ready(function($){
-            $('.delete-data').on('click',function(){
-                var getLink = $(this).attr('href');
-                swal({
-                        title: 'Are you sure?',
-                        text: 'Delete this data?',
-                        type: 'warning',
-                        html: true,
-                        confirmButtonColor: '#d9534f',
-                        showCancelButton: true,
-                        },function(){
-                        window.location.href = getLink
-                    });
-                return false;
-            });
+$(document).ready(function($){
+        $('.delete-data').on('click',function(){
+            var getLink = $(this).attr('href');
+            swal({
+                    title: 'Are you sure?',
+                    text: 'Delete this data?',
+                    type: 'warning',
+                    html: true,
+                    confirmButtonColor: '#d9534f',
+                    showCancelButton: true,
+                    },function(){
+                    window.location.href = getLink
+                });
+            return false;
         });
+    });
 </script>

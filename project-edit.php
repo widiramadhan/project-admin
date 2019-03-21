@@ -77,5 +77,10 @@ require_once("config/connection.php");
 			  autoclose: true,
 			  todayHighlight: true,
 		  });
-		 });
+		 });		 
+		$('#myModal').modal({
+			backdrop: 'static',
+			 keyboard: false
+			});  
+		
 		</script>

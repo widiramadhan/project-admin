@@ -1,4 +1,6 @@
-
+<script src="assets/js/jquery.min.js"></script>
+<link rel="stylesheet" href="assets/lib/sweetalert/sweetalert.min.css">
+<script src="assets/lib/sweetalert/sweetalert.min.js"></script>
 <div class="row">
 	<div class="col-sm-4">
 		<button type="button" class="btn btn-custom btn-rounded w-md waves-effect waves-light mb-4" data-toggle="modal" data-target=".bs-example-modal-md"><i class="fa fa-plus-circle"></i> Create Project</button>
@@ -59,7 +61,7 @@
 				</a>
 				<div class="dropdown-menu dropdown-menu-right" aria-labelledby="btnGroupDrop1">
 					<a data-toggle="modal" data-id="<?php echo $dataProject['M_PROJECT_ID'];?>" data-target=".bs-example-modal-md-2" class="dropdown-item open-AddBookDialog"><i class="fa fa-edit"></i> Edit</a>
-					<a class="dropdown-item" href="project-action.php?action=delete&id=<?php echo $dataProject['M_PROJECT_ID'];?>" title="Remove" onclick="return confirm('Are you sure you want to delete this item?');"><i class="fa fa-trash-o"></i> Delete</a>
+					<a class="dropdown-item delete_project " href="project-action.php?action=delete&id=<?php echo $dataProject['M_PROJECT_ID'];?>" title="Remove" ><i class="fa fa-trash-o"></i> Delete</a>
 					<a class="dropdown-item" href="index.php?page=team-setup1&id=<?php echo $dataProject['M_PROJECT_ID'];?>"><i class="fa fa-plus-square"></i> Add Teams</a>
 				</div>
 			</div>
@@ -190,5 +192,22 @@ $(document).ready(function() {
 	
 	
 });
+
+$(document).ready(function($){
+        $('.delete_project').on('click',function(){
+            var getLink = $(this).attr('href');
+            swal({
+                    title: 'Are you sure?',
+                    text: 'Delete this Project?',
+                    type: 'warning',
+                    html: true,
+                    confirmButtonColor: '#d9534f',
+                    showCancelButton: true,
+                    },function(){
+                    window.location.href = getLink
+                });
+            return false;
+        });
+    });
 </script>
 	
