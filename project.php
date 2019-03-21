@@ -188,9 +188,7 @@ $(document).ready(function() {
 				$("#addBookDialog2").html(value);
 			}
 		});
-	});
-	
-	
+	});	
 });
 
 $(document).ready(function($){

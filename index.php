@@ -83,7 +83,7 @@ require_once("config/connection.php");
                             <li class="dropdown notification-list">
                                 <a class="nav-link dropdown-toggle nav-user" data-toggle="dropdown" href="#" role="button"
                                    aria-haspopup="false" aria-expanded="false">
-                                    <img src="assets/images/avatar-1.jpg" alt="user" class="rounded-circle"> <span class="ml-1">Maxine K <i class="fa fa-chevron-down"></i> </span>
+                                    <img src="assets/images/avatar-1.jpg" alt="user" class="rounded-circle"> <span class="ml-1">Maxine K<i class="fa fa-chevron-down"></i> </span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated profile-dropdown">
                                     <div class="dropdown-item noti-title">
@@ -125,9 +125,6 @@ require_once("config/connection.php");
                     </nav>
                 </div>
                 <!-- Top Bar End -->
-
-
-
                 <!-- Start Page content -->
                 <div class="content">
                     <div class="container-fluid">

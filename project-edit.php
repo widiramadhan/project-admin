@@ -68,19 +68,14 @@ require_once("config/connection.php");
 			</form>
 		</div>
 	</div>
-	  <script src="assets/js/jquery.min.js"></script>	
-		<script src="assets/js/bootstrap-datepicker.min.js"></script>
-<script type="text/javascript">
-		 $(function(){
-		  $(".datepicker").datepicker({
-			  format: 'yyyy-mm-dd',
-			  autoclose: true,
-			  todayHighlight: true,
-		  });
-		 });		 
-		$('#myModal').modal({
-			backdrop: 'static',
-			 keyboard: false
-			});  
-		
-		</script>
+  	<script src="assets/js/jquery.min.js"></script>	
+  	<script src="assets/js/bootstrap-datepicker.min.js"></script>
+	<script type="text/javascript">
+	 $(function(){
+	  $(".datepicker").datepicker({
+		  format: 'yyyy-mm-dd',
+		  autoclose: true,
+		  todayHighlight: true,
+	  });
+	 });	
+	</script>

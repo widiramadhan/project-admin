@@ -11,8 +11,7 @@ $dataProfile = sqlsrv_fetch_array($exec)
 <link rel="stylesheet" href="assets/lib/sweetalert/sweetalert.min.css">
 <script src="assets/lib/sweetalert/sweetalert.min.js"></script>
 <div class="row">
-	<div class="col-md-3">
-	
+	<div class="col-md-3">	
 		<div class="card-box">
 			<h4 class="header-title mt-0 m-b-20 text-center">Profile Team</h4>
 			<div class="panel-body">
