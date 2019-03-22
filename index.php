@@ -30,7 +30,7 @@ require_once("config/connection.php");
                     <div class="topbar-left">
                         <a href="index.html" class="logo">
                             <span>
-                                <img src="assets/images/logo.png" alt="" height="22">
+                                <img src="assets/images/logo1.png" alt="" height="30">
                             </span>
                             <i>
                                 <img src="assets/images/logo_sm.png" alt="" height="28">
@@ -39,9 +39,9 @@ require_once("config/connection.php");
                     </div>
                     <div class="user-box">
                         <div class="user-img">
-                            <img src="assets/images/avatar-1.jpg" alt="user-img" title="Mat Helme" class="rounded-circle img-fluid">
+                            <img src="assets/images/team/aning.jpg" alt="user-img" title="Aning Hermawati" class="rounded-circle img-fluid">
                         </div>
-                        <h5><a href="#">Aning Herawati</a> </h5>
+                        <h5><a href="#">Aning Hermawati</a> </h5>
                         <p class="text-muted">Project Admin</p>
                     </div>
                     <div id="sidebar-menu">
@@ -66,11 +66,11 @@ require_once("config/connection.php");
                                 </ul>
                                 </a>
                             </li>
-							<li>
+							<!--<li>
                                 <a href="index.php?page=bisreq">
                                     <i class="fa fa-clipboard"></i> <span> Bisreq </span>
                                 </a>
-                            </li>
+                            </li>-->
                         </ul>
                     </div>
                     <div class="clearfix"></div>
@@ -83,26 +83,17 @@ require_once("config/connection.php");
                             <li class="dropdown notification-list">
                                 <a class="nav-link dropdown-toggle nav-user" data-toggle="dropdown" href="#" role="button"
                                    aria-haspopup="false" aria-expanded="false">
-                                    <img src="assets/images/avatar-1.jpg" alt="user" class="rounded-circle"> <span class="ml-1">Maxine K<i class="fa fa-chevron-down"></i> </span>
+                                    <img src="assets/images/team/aning.jpg" alt="user" class="rounded-circle"> <span class="ml-1">Aning Hermawati<i class="fa fa-chevron-down"></i> </span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated profile-dropdown">
                                     <div class="dropdown-item noti-title">
                                         <h6 class="text-overflow m-0">Welcome !</h6>
                                     </div>
+                                    <a href="index.php?page=team-profile&id=8" class="dropdown-item notify-item">
+                                        <i class="fa fa-user"></i> <span>My Account</span>
+                                    </a>                                   
                                     <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                        <i class="fi-head"></i> <span>My Account</span>
-                                    </a>
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                        <i class="fi-cog"></i> <span>Settings</span>
-                                    </a>
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                        <i class="fi-help"></i> <span>Support</span>
-                                    </a>
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                        <i class="fi-lock"></i> <span>Lock Screen</span>
-                                    </a>
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                        <i class="fi-power"></i> <span>Logout</span>
+                                        <i class="fa fa-sign-out"></i> <span>Logout</span>
                                     </a>
                                 </div>
                             </li>
