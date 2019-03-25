@@ -92,7 +92,9 @@ $status=$dataProject['STATUS'];
 			<br>			
 		</div>
 		
-		 <div class="tab-pane show" id="bisreq-b1">		 	
+		 <div class="tab-pane show" id="bisreq-b1">		
+		 <div class="card-box">
+			<button type="button" class="btn btn-custom w-lg waves-effect waves-light float-right"><i class="fa fa-upload"></i> Upload Files</button>
 			<h4 class="header-title m-b-30">My Files</h4>
 			<div class="row">
 				<div class="col-lg-3">
@@ -110,6 +112,7 @@ $status=$dataProject['STATUS'];
 				</div>
 
 			</div>
+		</div>
 		</div>
 		</div>
 		</div>
