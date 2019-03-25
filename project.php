@@ -90,7 +90,7 @@
 					$execTeam = sqlsrv_query( $conn, $callTeam,$paramsTeam) or die( print_r( sqlsrv_errors(), true));
 					while($dataTeam = sqlsrv_fetch_array($execTeam)){
 				?>
-				<a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="<?php echo $dataTeam["FULLNAME"];?>">
+				<a href="index.php?page=team-profile&id=<?php echo $dataTeam['TEAM_ID'];?>" data-toggle="tooltip" data-placement="top" title="" data-original-title="<?php echo $dataTeam["FULLNAME"];?>">
 					<img src="assets/images/team/<?php echo $dataTeam["IMG"];?>" class="rounded-circle thumb-sm" alt="friend" />
 				</a>
 				<?php } ?>
