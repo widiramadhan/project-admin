@@ -113,7 +113,7 @@
 <div class="modal fade bs-example-modal-md" tabindex="-1" role="dialog" aria-hidden="true">
 	<div class="modal-dialog modal-lg">
 		<div class="modal-content">
-			<form action="project-action.php?action=save" method="post" enctype="multipart/form-data" id="form">
+			<form action="project-action.php?action=save" method="post" enctype="multipart/form-data" id="form1" name="form1">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
 					<h4 class="modal-title" id="myModalLabel">Create Project</h4>
@@ -207,5 +207,7 @@ $(document).ready(function($){
             return false;
         });
     });
+	
+
 </script>
 	

@@ -47,6 +47,10 @@ switch ($current_page) {
 	require_once('bisreq.php');
 	break;
 	
+	case 'request':
+	require_once('request.php');
+	break;
+	
 	
 	default:
 	require_once('404.php');
