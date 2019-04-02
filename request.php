@@ -1,3 +1,7 @@
+<?php
+$startDate = date("Y-m-d");
+	$endDate = date("Y-m-d");
+?>
 <div class="row">
 	<div class="col-lg-6">
 		<div class="card-box">
@@ -25,6 +29,19 @@
 					</select>
 					<br />
 					
+					<label>Divisi </label>
+					<select name="product_type" id="product_type" class="form-control" required>
+						<option selected disabled>CHOOSE DIVISI</option>
+						<?php
+							$callDivisi = "{call SP_GET_DIVISI}"; 
+							$execDivisi = sqlsrv_query( $conn, $callDivisi) or die( print_r( sqlsrv_errors(), true));
+							while($dataDivisi = sqlsrv_fetch_array($execDivisi)){
+						?>
+						<option value="<?php echo $dataDivisi['M_DIVISI_ID'];?>"><?php echo $dataDivisi['DIVISI_NAME'];?></option> 
+						<?php } ?>
+					</select>
+					<br />
+					
 					<label>Classification </label>
 					<select name="classification" id="classification" class="form-control" required>
 						<option value="" disabled selected>CHOOSE CLASSIFICATION</option>
@@ -34,17 +51,25 @@
 					</select>
 					<br />
 					
-					<label>Divisi </label>
-					<select name="product_type" id="product_type" class="form-control" required>
-						<option value="" disabled selected>CHOOSE DIVISI</option>
-						<option value="production">Production</option>
-						<option value="it">IT Solution</option>
-					</select>
-					<br />
+					
 					
 					<label>Requester Name </label>
-					<input type="text" id="req_name" name="req_name" class="form-control" required>
-				
+					<input type="text" id="req_name" name="req_name" class="form-control" required><br />
+					
+					<label>Request Description </label>
+					<textarea type="text" id="req_desc" name="req_desc" class="form-control" required></textarea><br />
+					
+					<label>Requester Date </label>
+					<input type="text" class="form-control datepicker" id="start_date" name="start_date" value="<?php echo $startDate;?>" ><br>
+					
+					<label>Level </label>
+						<select name="level" id="level" class="form-control" required>
+						<option value="" disabled selected>CHOOSE CLASSIFICATION</option>
+						<option value="MAJOR">Major</option>
+						<option value="MINOR">Minor</option>
+					</select>
+					
+					
 				</div>
 				
 				<div class="form-group">
@@ -60,10 +85,12 @@
 						<?php } ?>
 					</select>
 					<br>
+				</div>
+				
 				    <button style="width:100%" type="submit" class="btn btn-custom">Submit</button>
 			</form>
 			    
-		</div>
+		
 	</div>
 </div>
 <script src="assets/js/jquery.min.js"></script>

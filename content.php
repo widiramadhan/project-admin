@@ -51,6 +51,10 @@ switch ($current_page) {
 	require_once('request.php');
 	break;
 	
+	case 'issue':
+	require_once('issue.php');
+	break;
+	
 	
 	default:
 	require_once('404.php');

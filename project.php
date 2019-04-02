@@ -153,7 +153,6 @@
 							<option value="Go Live">Go Live</option>
 							<option value="Pending">Pending</option>
 							<option value="UAT">UAT</option>
-					
 						</select>
 				</div>
 				<div class="form-group">

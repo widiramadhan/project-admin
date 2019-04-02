@@ -19,7 +19,9 @@ require_once("config/connection.php");
 		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
         <script src="assets/js/modernizr.min.js"></script>
 	    <link href="assets/css/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css" />
-	
+		 <!-- bootstrap-daterangepicker -->
+		<link href="vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+		
 
         
     </head>
@@ -69,6 +71,11 @@ require_once("config/connection.php");
 							<li>
                                 <a href="index.php?page=request">
                                     <i class="fa fa-retweet"></i> <span> Request </span>
+                                </a>
+                            </li>
+							<li>
+                                <a href="index.php?page=issue">
+                                    <i class="fa fa-exclamation-circle"></i> <span> Issue </span>
                                 </a>
                             </li>
 							<!--<li>
@@ -152,6 +159,8 @@ require_once("config/connection.php");
         <script src="assets/js/jquery.dashboard.init.js"></script>
         <script src="assets/js/jquery.core.js"></script>
         <script src="assets/js/jquery.app.js"></script>
+		<script src="vendors/DateJS/build/date.js"></script>
+		<script src="vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
 		<script type="text/javascript">
 		 $(function(){
 		  $(".datepicker").datepicker({
