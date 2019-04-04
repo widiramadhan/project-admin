@@ -5,8 +5,8 @@ $startDate = date("Y-m-d");
 <div class="row">
 	<div class="col-lg-6">
 		<div class="card-box">
-			<h4 class="m-t-0 m-b-30 header-title">Add Team Mapping</h4>
-			<form action="team-action.php?action=save-setup" method="post" enctype="multipart/form-data" id="form">
+			<h4 class="m-t-0 m-b-30 header-title">Add Request</h4>
+			<form action="request-action.php?action=save" method="post" enctype="multipart/form-data" id="form">
 				<div class="form-group">
 					<label>Project Name</label>
 					<select name="project_name" id="project" class="form-control" required>
@@ -22,7 +22,7 @@ $startDate = date("Y-m-d");
 					<br />
 					
 					<label>Request Type </label>
-					<select name="product_type" id="request_type" class="form-control" required>
+					<select name="request_type" id="request_type" class="form-control" required>
 						<option value="" disabled selected>CHOOSE REQUEST TYPE</option>
 						<option value="Email">Email</option>
 						<option value="Bisreq">Bisreq</option>
@@ -30,7 +30,7 @@ $startDate = date("Y-m-d");
 					<br />
 					
 					<label>Divisi </label>
-					<select name="product_type" id="product_type" class="form-control" required>
+					<select name="divisi" id="divisi" class="form-control" required>
 						<option selected disabled>CHOOSE DIVISI</option>
 						<?php
 							$callDivisi = "{call SP_GET_DIVISI}"; 
@@ -60,11 +60,11 @@ $startDate = date("Y-m-d");
 					<textarea type="text" id="req_desc" name="req_desc" class="form-control" required></textarea><br />
 					
 					<label>Requester Date </label>
-					<input type="text" class="form-control datepicker" id="start_date" name="start_date" value="<?php echo $startDate;?>" ><br>
+					<input type="text" class="form-control datepicker" id="request_date" name="request_date" value="<?php echo $startDate;?>" ><br>
 					
 					<label>Level </label>
 						<select name="level" id="level" class="form-control" required>
-						<option value="" disabled selected>CHOOSE CLASSIFICATION</option>
+						<option value="" disabled selected>CHOOSE LEVEL</option>
 						<option value="MAJOR">Major</option>
 						<option value="MINOR">Minor</option>
 					</select>
@@ -72,7 +72,6 @@ $startDate = date("Y-m-d");
 					
 				</div>
 				
-				<div class="form-group">
 					<label>PIC</label>
 					<select class="form-control" name="pic" id="pic">
 						<option selected disabled>Choose your Option</option>
@@ -85,8 +84,24 @@ $startDate = date("Y-m-d");
 						<?php } ?>
 					</select>
 					<br>
-				</div>
+			
+					<label>Start Date </label>
+					<input type="text" class="form-control datepicker" id="start_date" name="start_date" value="<?php echo $startDate;?>" ><br>
+					
+					<label>End Date </label>
+					<input type="text" class="form-control datepicker" id="end_date" name="end_date" value="" ><br>
 				
+					<label>Status </label>
+					<select id="status" name="status" class="form-control" required>
+						<option value="" disabled selected>CHOOSE CLASSIFICATION</option>
+						<option value="OPEN">OPEN</option>
+						<option value="FINISH">FINISH</option>
+					</select>
+					<br />
+					
+					<label>Checked By </label>
+					<input type="text" id="checkby" name="checkby" class="form-control" required><br />
+					
 				    <button style="width:100%" type="submit" class="btn btn-custom">Submit</button>
 			</form>
 			    
@@ -94,3 +109,16 @@ $startDate = date("Y-m-d");
 	</div>
 </div>
 <script src="assets/js/jquery.min.js"></script>
+<script>
+$('#status').change(function() { 
+  	var status =$('#status').val();
+	if(status == 'OPEN'){
+		document.getElementById('end_date').disabled = true;
+		document.getElementById('checkby').disabled = true;
+	}else{
+		document.getElementById('end_date').disabled = false;
+		document.getElementById('checkby').disabled = false;
+	}
+	
+    });
+</script>
