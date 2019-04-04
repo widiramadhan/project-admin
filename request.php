@@ -88,9 +88,6 @@ $startDate = date("Y-m-d");
 					<label>Start Date </label>
 					<input type="text" class="form-control datepicker" id="start_date" name="start_date" value="<?php echo $startDate;?>" ><br>
 					
-					<label>End Date </label>
-					<input type="text" class="form-control datepicker" id="end_date" name="end_date" value="" ><br>
-				
 					<label>Status </label>
 					<select id="status" name="status" class="form-control" required>
 						<option value="" disabled selected>CHOOSE CLASSIFICATION</option>
@@ -99,9 +96,16 @@ $startDate = date("Y-m-d");
 					</select>
 					<br />
 					
-					<label>Checked By </label>
-					<input type="text" id="checkby" name="checkby" class="form-control" required><br />
+					<div id="ed">
+					<label>End Date </label>
+					<input type="text" class="form-control datepicker" id="end_date" name="end_date" value="" ><br>
+					</div>
 					
+					
+					<div id="cek">
+					<label>Checked By </label>
+					<input type="text" id="checkby" name="checkby" class="form-control" value="" required><br />
+					</div>
 				    <button style="width:100%" type="submit" class="btn btn-custom">Submit</button>
 			</form>
 			    
@@ -110,14 +114,16 @@ $startDate = date("Y-m-d");
 </div>
 <script src="assets/js/jquery.min.js"></script>
 <script>
+document.getElementById('ed').style.display='none';
+document.getElementById('cek').style.display='none';
 $('#status').change(function() { 
   	var status =$('#status').val();
 	if(status == 'OPEN'){
-		document.getElementById('end_date').disabled = true;
-		document.getElementById('checkby').disabled = true;
+		document.getElementById('ed').style.display='none';
+		document.getElementById('cek').style.display='none';
 	}else{
-		document.getElementById('end_date').disabled = false;
-		document.getElementById('checkby').disabled = false;
+		document.getElementById('ed').style.display='block';
+		document.getElementById('cek').style.display='block';
 	}
 	
     });

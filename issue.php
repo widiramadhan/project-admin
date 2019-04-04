@@ -6,7 +6,7 @@ $startDate = date("Y-m-d");
 	<div class="col-lg-6">
 		<div class="card-box">
 			<h4 class="m-t-0 m-b-30 header-title">Add Issue</h4>
-			<form action="team-action.php?action=save-setup" method="post" enctype="multipart/form-data" id="form">
+			<form action="issue-action.php?action=save" method="post" enctype="multipart/form-data" id="form">
 				<div class="form-group">
 					<label>Project Name</label>
 					<select name="project_name" id="project" class="form-control" required>
@@ -60,19 +60,19 @@ $startDate = date("Y-m-d");
 					<textarea type="text" id="iss_desc" name="iss_desc" class="form-control" required></textarea><br />
 					
 					<label>Issueer Date </label>
-					<input type="text" class="form-control datepicker" id="issue_date" name="issue_date" value="<?php echo $startDate;?>" ><br>
+					<input type="text" class="form-control datepicker" id="issue_date" name="issue_date" value="<?php echo $startDate;?>" ><br />
 					
 					<label>Level </label>
 						<select name="level" id="level" class="form-control" required>
 						<option value="" disabled selected>CHOOSE LEVEL</option>
 						<option value="MAJOR">Major</option>
 						<option value="MINOR">Minor</option>
-					</select>
+					</select><br />
 					
 					
-				</div>
 				
-				<div class="form-group">
+				
+			
 					<label>PIC</label>
 					<select class="form-control" name="pic" id="pic">
 						<option selected disabled>Choose your Option</option>
@@ -85,13 +85,11 @@ $startDate = date("Y-m-d");
 						<?php } ?>
 					</select>
 					<br>
-				</div>
+			
+				
 					<label>Start Date </label>
 					<input type="text" class="form-control datepicker" id="start_date" name="start_date" value="<?php echo $startDate;?>" ><br>
 					
-					<label>End Date </label>
-					<input type="text" class="form-control datepicker" id="end_date" name="end_date" value="" ><br>
-				
 					<label>Status </label>
 					<select id="status" name="status" class="form-control" required>
 						<option value="" disabled selected>CHOOSE CLASSIFICATION</option>
@@ -100,25 +98,34 @@ $startDate = date("Y-m-d");
 					</select>
 					<br />
 					
-					<label>Checked By </label>
-					<input type="text" id="checkby" name="checkby" class="form-control" required><br />
+					<div id="ed">
+					<label>End Date </label>
+					<input type="text" class="form-control datepicker" id="end_date" name="end_date" value="" ><br>
+					</div>
 					
+					
+					<div id="cek">
+					<label>Checked By </label>
+					<input type="text" id="checkby" name="checkby" class="form-control" value="" required><br />
+					</div>
 				    <button style="width:100%" type="submit" class="btn btn-custom">Submit</button>
 			</form>
 			    
-		
+		</div>
 	</div>
 </div>
 <script src="assets/js/jquery.min.js"></script>
 <script>
+document.getElementById('ed').style.display='none';
+document.getElementById('cek').style.display='none';
 $('#status').change(function() { 
   	var status =$('#status').val();
 	if(status == 'OPEN'){
-		document.getElementById('end_date').disabled = true;
-		document.getElementById('checkby').disabled = true;
+		document.getElementById('ed').style.display='none';
+		document.getElementById('cek').style.display='none';
 	}else{
-		document.getElementById('end_date').disabled = false;
-		document.getElementById('checkby').disabled = false;
+		document.getElementById('ed').style.display='block';
+		document.getElementById('cek').style.display='block';
 	}
 	
     });
